@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from services.pdf_service import extract_pdf_content
 from models.pdf_data import PdfData
 from config.db import get_db
+import time
 import os
 import tempfile
 
@@ -27,11 +28,12 @@ def upload_pdf():
         pdf_data = PdfData(content=extracted_content)
         collection.insert_one(pdf_data.to_dict())
         
-        time.sleep(1)
-        try:
-            os.remove(extracted_content)
-        except PermissionError:
-            return f"Error: Unable to delete the file {extracted_content}. It might be in use.", 500
+        # time.sleep(1)
+        # try:
+        #     os.remove(extracted_content)
+        # except PermissionError:clear
+        
+        #     return f"Error: Unable to delete the file {extracted_content}. It might be in use.", 500
 
         
         return jsonify({'message': 'PDF extracted and stored successfully'}), 200
