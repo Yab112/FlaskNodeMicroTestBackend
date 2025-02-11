@@ -1,4 +1,4 @@
-# Flask App for AccaciaTech
+# Flask App to Extract Text from PDF
 
 ## Overview
 
@@ -75,13 +75,13 @@ flask_app/
 │   │   └── ...
 │   ├── services/
 │   │   ├── __init__.py     # Route initialization
-│   │   └── pdf_service.py      # Example route
-    ├── Controllers/
-│   │   ├── pdf_controller.py     # Route initialization
-│   │   └── ex
+│   │   └── pdf_service.py  # Example route
+│   ├── Controllers/
+│   │   ├── pdf_controller.py # Route initialization
+│   │   └── ...
 │   ├── models/
 │   │   ├── __init__.py     # Model initialization
-│   │   └── pdf_data.py      # Example model
+│   │   └── pdf_data.py     # Example model
 │   └── ...
 ├── app.py
 ├── .env                    # Environment variables
@@ -89,6 +89,32 @@ flask_app/
 ├── README.md               # Project documentation
 └── requirements.txt        # Python dependencies
 ```
+
+## Testing the Endpoint
+
+You can test the endpoint using Postman or Apidog.
+
+### Using Postman
+
+1. Open Postman.
+2. Create a new request.
+3. Set the request type to `POST`.
+4. Enter the URL `http://127.0.0.1:5000/upload`.
+5. Go to the `Body` tab and select `form-data`.
+6. Add a key `file` and set the type to `Files`.
+7. Choose the PDF file you want to upload.
+8. Click `Send`.
+
+### Using Apidog
+
+1. Open Apidog.
+2. Create a new request.
+3. Set the request type to `POST`.
+4. Enter the URL `http://127.0.0.1:5000/uploads`.
+5. Go to the `Body` tab and select `form-data`.
+6. Add a key `file` and set the type to `Files`.
+7. Choose the PDF file you want to upload.
+8. Click `Send`.
 
 ## Contributing
 
