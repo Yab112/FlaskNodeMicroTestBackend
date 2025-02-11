@@ -1,83 +1,104 @@
-# TestForAccaciaTech
+# Flask App for AccaciaTech
 
-## Project Overview
+## Overview
 
-TestForAccaciaTech is a project designed to process PDF files and extract key information from them. This project aims to automate the extraction and storage of data from PDF documents. It is built using Flask, MongoDB, and various Python libraries for PDF processing.
+This project is a Flask application designed for AccaciaTech. It includes various utilities and configurations to facilitate development and deployment.
 
 ## Features
 
-- Feature 1: Upload and process PDF files
-- Feature 2: Extract text and metadata from PDF files
-- Feature 3: Store extracted data in MongoDB
+- MongoDB integration
+- Environment variable management
+- Logging configuration
+- Data storage utilities
 
-## Getting Started
+## Setup
 
 ### Prerequisites
 
-Before you begin, ensure you have met the following requirements:
-
-- Python 3.7+
-- MongoDB instance
+- Python 3.x
+- MongoDB
+- pip (Python package installer)
 
 ### Installation
 
-To install this project, follow these steps:
-
 1. Clone the repository:
+
    ```sh
-   git clone https://github.com/your-username/TestForAccaciaTech.git
-   ```
-2. Navigate to the project directory:
-   ```sh
-   cd TestForAccaciaTech
-   ```
-3. Install the dependencies:
-   ```sh
-   pip install -r flask_app/requirements.txt
+   git clone https://github.com/Yab112/FlaskNodeMicroTestBackend.git
+   cd FlaskNodeMicroTestBackend
    ```
 
-### Usage
+2. Create and activate a virtual environment:
 
-To use this project, follow these steps:
+   ```sh
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 
-1. Start the Flask server:
+3. Install the required packages:
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+4. Create a `.env` file in the root directory and add your MongoDB URI:
+   ```env
+   MONGO_URI=mongodb://your_mongo_uri
+   ```
+
+## Usage
+
+1. Activate the virtual environment:
+
+   ```sh
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+2. Run the Flask application:
+
    ```sh
    flask run
    ```
-2. Upload a PDF file through the provided web interface.
-3. The extracted data will be processed and stored in MongoDB.
 
-### Running Tests
+3. Access the application at `http://127.0.0.1:5000`.
 
-To run tests, execute the following command:
+## Project Structure
 
-```sh
-pytest
+```
+flask_app/
+│
+├── venv/                   # Virtual environment
+├── flask_app/
+│   ├── __init__.py         # Flask app initialization
+│   ├── utils/
+│   │   ├── db_utils.py     # Database utilities
+│   │   └── ...
+│   ├── services/
+│   │   ├── __init__.py     # Route initialization
+│   │   └── pdf_service.py      # Example route
+    ├── Controllers/
+│   │   ├── pdf_controller.py     # Route initialization
+│   │   └── ex
+│   ├── models/
+│   │   ├── __init__.py     # Model initialization
+│   │   └── pdf_data.py      # Example model
+│   └── ...
+├── app.py
+├── .env                    # Environment variables
+├── .gitignore              # Git ignore file
+├── README.md               # Project documentation
+└── requirements.txt        # Python dependencies
 ```
 
 ## Contributing
 
-Contributions are always welcome! To contribute, follow these steps:
-
 1. Fork the repository.
-2. Create a new branch:
-   ```sh
-   git checkout -b feature/YourFeature
-   ```
-3. Make your changes and commit them:
-   ```sh
-   git commit -m 'Add some feature'
-   ```
-4. Push to the branch:
-   ```sh
-   git push origin feature/YourFeature
-   ```
-5. Open a pull request.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
 ## License
 
-This project is licensed under the [License Name]. See the [LICENSE](LICENSE) file for more details.
-
-## Contact
-
-If you have any questions or suggestions, feel free to reach out to [Your Contact Information].
+This project is licensed under the MIT License.

@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from groq import Groq
 import json
 from utils.db_utils import store_data
+from models.pdf_data import PdfData
+
 from datetime import datetime
 
 load_dotenv()
@@ -61,7 +63,7 @@ def json_from_text(text):
             return None
     return None
 
-def preprocess_and_store_data(text):
+def preprocess_and_store_data(text,metadata):
     """
     Preprocesses the extracted text, organizes it, and stores it in the database.
     """
@@ -74,6 +76,8 @@ def preprocess_and_store_data(text):
 
     
     if json_data:
+        pdf_data = PdfData(content=json_data, metadata=metadata)
+        json_data = pdf_data.to_dict()
         store_data('processed_data', json_data)  # Store in MongoDB
         return True
     return False

@@ -16,5 +16,11 @@ def extract_pdf_content(file_path):
 def extract_metadata(file_path):
     pdf = pdfquery.PDFQuery(file_path)
     pdf.load()
+    
+    # Extract the metadata
     metadata = pdf.tree.getroot().attrib
-    return metadata
+    
+    # Convert the metadata to a dictionary of string values (e.g., removing non-serializable parts)
+    serializable_metadata = {key: str(value) for key, value in metadata.items()}
+    
+    return serializable_metadata

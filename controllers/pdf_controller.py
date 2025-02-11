@@ -37,10 +37,10 @@ def upload_pdf():
                 metadata = extract_metadata(temp_file.name)
 
                 # Preprocess and store data
-                if preprocess_and_store_data(extracted_content):
+                if preprocess_and_store_data(extracted_content,metadata):
                     logging.info(f"Data from {file.filename} processed and stored successfully")
                 else:
-                    logging.error(f"Failed to process data ***************************** from {file.filename}",)
+                    logging.error(f"Failed to process data from {file.filename}",)
                 
                 time.sleep(1)       
                 os.remove(temp_file.name)  # Delete the temporary file
