@@ -2,3 +2,4 @@ Flask
 pymongo
 pdfplumber
 PyMuPDF
+groq
